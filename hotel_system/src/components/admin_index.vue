@@ -1,12 +1,11 @@
 <template>
   <div>
-    <Slider />
-    <Content />
+    <AdminHeader></AdminHeader>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-  import Slider from './slider'
-  import Content from './content'
+  import AdminHeader from './admin_header'
   export default {
     data () {
       return {
@@ -14,8 +13,7 @@
       }
     },
     components: {
-      Slider,
-      Content
+      AdminHeader
     }
   }
 </script>

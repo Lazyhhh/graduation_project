@@ -3,16 +3,16 @@
     <div class="header">
       <div class="logo">维 纳 斯</div>
       <div class="nav">
-        <router-link class="router-link" to="/index">首页</router-link>
-        <router-link class="router-link" to="/hotel">酒店预订</router-link>
-        <router-link class="router-link" to="/detail">酒店详情</router-link>
-        <router-link class="router-link" to="/order">我的订单</router-link>
-        <router-link class="router-link" to="/center">个人中心</router-link>
+        <router-link class="router-link" to="/admin/index">首页</router-link>
+        <router-link class="router-link" to="/admin/order">订单管理</router-link>
+        <router-link class="router-link" to="/admin/message">留言管理</router-link>
+        <router-link class="router-link" to="/admin/user">用户管理</router-link>
+        <router-link class="router-link" to="/admin/room">客房管理</router-link>
       </div>
       <div class="right-box">
         <span v-if="!isLogin" class="login" @click="goLogin()">登录</span>
         <span v-if="!isLogin" class="split"></span>
-        <span v-if="!isLogin" class="register" @click="gotoRes()">注册</span>
+        <span v-if="!isLogin" class="register">注册</span>
         <span v-if="isLogin">{{ name }}，欢迎您</span>
         <span v-if="isLogin" class="split"></span>
         <span v-if="isLogin" @click="logout()">退出登录</span>
@@ -30,14 +30,10 @@
       }
     },
     methods: {
-      gotoRes(){
-        this.$router.push('/register');
-      },
       goLogin(){
         this.$router.push('/login');
       }, 
       logout: function () {
-        this.$router.push('/login');
         this.$store.dispatch('logout');
       }
     },
